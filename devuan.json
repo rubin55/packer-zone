@@ -1,20 +1,19 @@
 {
-  "builders": [{
-  "type": "vmware-iso",
-  "iso_url": "file:///C:/Users/rubin/Dropbox/Archive/Software/Devuan%201.0/devuan_jessie_1.0.0-beta2_amd64_NETINST.iso",
-  "iso_checksum": "ecb8057317bf8131885c6bc5c8981fd1fb259fd002fb5f145c8be15ac96d0983",
-  "iso_checksum_type": "sha256",
-  "ssh_username": "packer",
-  "shutdown_command": "shutdown -P now",
-  "disk_size": 10000,
-  "disk_type_id": 0,
-  "guest_os_type": "debian8-64",
-  "version": "11",
-  "vm_name": "damian",
-  "vmdk_name": "system",
-  "boot_command": [
-    "<down>"
-  ]
-  }]
+    "builders": [{
+        "type": "vmware-iso",
+        "iso_url": "file:///C:/Users/rubin/Dropbox/Archive/Software/Devuan%201.0/devuan_jessie_1.0.0-beta2_amd64_NETINST.iso",
+        "iso_checksum": "ecb8057317bf8131885c6bc5c8981fd1fb259fd002fb5f145c8be15ac96d0983",
+        "iso_checksum_type": "sha256",
+        "ssh_username": "packer",
+        "shutdown_command": "shutdown -P now",
+        "disk_size": 10000,
+        "disk_type_id": 0,
+        "guest_os_type": "debian8-64",
+        "version": "11",
+        "vm_name": "damian",
+        "vmdk_name": "system",
+        "boot_command": [
+            "<down>"
+        ]
+    }]
 }
-
