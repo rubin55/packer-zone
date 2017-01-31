@@ -14,7 +14,9 @@
         "vmdk_name": "system",
         "http_directory": ".",
         "boot_command": [
-            "<down>"
+            "<esc>",
+            "auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/devuan-preseed.cfg",
+            "<enter>"
         ]
     }]
 }
