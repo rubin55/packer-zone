@@ -12,6 +12,7 @@
         "version": "11",
         "vm_name": "damian",
         "vmdk_name": "system",
+        "http_directory": ".",
         "boot_command": [
             "<down>"
         ]
