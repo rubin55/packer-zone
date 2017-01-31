@@ -1,0 +1,36 @@
+{
+    "provisioners": [{
+        "type": "shell-local",
+        "command": "openssl genrsa -out packer_http/private.pem 2048"
+    }],
+    "post-processors": [{
+        "type": "vagrant",
+        "override": {
+            "vmware": {
+                "output": "devuan-1.0-x64-vmware.box"
+            }
+        }
+    }],
+    "builders": [{
+        "type": "vmware-iso",
+        "iso_url": "file:///C:/Users/rubin/Dropbox/Archive/Software/Devuan%201.0/devuan_jessie_1.0.0-beta2_amd64_CD.iso",
+        "iso_checksum": "70898e0dc49af6ec4937c16d8eb9d2a0190720c88d3b32a1c9607a9259684821",
+        "iso_checksum_type": "sha256",
+        "ssh_username": "vagrant",
+        "ssh_private_key_file": "packer_http/private.pem",
+        "ssh_wait_timeout": "600s",
+        "shutdown_command": "shutdown -P now",
+        "disk_size": 10000,
+        "disk_type_id": 0,
+        "guest_os_type": "debian8-64",
+        "version": "11",
+        "vm_name": "devuan",
+        "vmdk_name": "system",
+        "http_directory": "packer_http",
+        "boot_command": [
+            "<esc>",
+            "auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg",
+            "<enter>"
+        ]
+    }]
+}
