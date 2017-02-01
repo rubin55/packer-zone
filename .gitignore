@@ -1,5 +1,12 @@
 # Cache objects
-packer_cache/
+**/packer_cache/
 
 # For built boxes
-*.box
+**/*.box
+
+# For generated certificates
+**/*.pem
+
+# For auth keys and roles
+**/*.keys
+**/*.role
