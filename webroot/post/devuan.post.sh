@@ -183,15 +183,19 @@ function doPostInstallation {
     apt-get update
     apt-get -y dist-upgrade
 
-    reportInfo "Installing additional software components"
-    apt-get -y install linux-headers-$(uname -r) sudo
+    reportInfo "Installing linux standard base"
+    apt-get -y install lsb-release
 
-    reportInfo "Installing and configuring VMware Tools component"
-    apt-get -y install open-vm-tools
-    mkdir -p /mnt/hgfs
-    echo -n ".host:/ /mnt/hgfs vmhgfs rw,ttl=1,uid=my_uid,gid=my_gid,nobootwait 0 0" >> /etc/fstab
+    reportInfo "Installing linux-headers"
+    apt-get -y install linux-headers-$(uname -r)
+
+    #reportInfo "Installing and configuring VMware Tools component"
+    #apt-get -y install open-vm-tools
+    #mkdir -p /mnt/hgfs
+    #echo -n ".host:/ /mnt/hgfs vmhgfs rw,ttl=1,uid=my_uid,gid=my_gid,nobootwait 0 0" >> /etc/fstab
 
     reportInfo "Configuring sudo"
+    apt-get -y install sudo
     usermod -G sudo -a vagrant
     sed -i -e '/Defaults\s\+env_reset/a Defaults\texempt_group=sudo' /etc/sudoers
     sed -i -e 's/%sudo  ALL=(ALL:ALL) ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
