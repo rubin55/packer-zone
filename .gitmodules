@@ -1,3 +1,3 @@
 [submodule "webroot/auth"]
 	path = webroot/auth
-	url = git://github.com/raaftech/pkctl.git
+	url = git@github.com:raaftech/pkctl.git
