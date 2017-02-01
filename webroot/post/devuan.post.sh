@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Always run from root.
+cd /root
+
 # Log output to external log.
 exec > >(tee -i postinst.log)
 exec 2>&1
@@ -211,8 +214,6 @@ function doPostInstallation {
     rm -f /etc/udev/rules.d/70-persistent-net.rules
     rm -rf /dev/.udev/
     rm -f /lib/udev/rules.d/75-persistent-net-generator.rules
-
-    sleep 600
 }
 
 # printVersion()
