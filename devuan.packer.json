@@ -15,7 +15,8 @@
         "ssh_username": "vagrant",
         "ssh_password": "vagrant",
         "ssh_wait_timeout": "600s",
-        "shutdown_command": "shutdown -P now",
+        "shutdown_command": "sudo /sbin/poweroff",
+        "shutdown_timeout": "1m",
         "disk_size": 10000,
         "disk_type_id": 0,
         "guest_os_type": "debian8-64",
@@ -23,6 +24,7 @@
         "vm_name": "devuan",
         "vmdk_name": "system",
         "http_directory": "webroot",
+        "boot_wait": "5s",
         "boot_command": [
             "<esc>",
             "auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/boot/devuan.preseed.cfg",
