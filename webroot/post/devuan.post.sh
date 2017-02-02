@@ -1,7 +1,17 @@
 #!/usr/bin/env bash
 
+# Check if root.
+user="$USER"
+if [ "$user" != "root" ]; then
+    echo "You have to be root to run this script"
+    exit 1
+fi
+
 # Always run from root.
 cd /root
+
+# Make sure post configuration is non-interactive
+export DEBIAN_FRONTEND=noninteractive
 
 # Log output to external log.
 exec > >(tee -i postinst.log)
